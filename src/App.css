@@ -3,4 +3,5 @@
     font-style: normal;
     letter-spacing: 1px;
     /* background-color: #000; */
+    scroll-behavior: smooth;
 }
