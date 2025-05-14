@@ -2,7 +2,7 @@ import waveDark from "../assets/wave-dark.png"
 
 export default function FeaturesSection() {
   return (
-    <section className="container mx-auto py-20 px-4 bg-[#f5f3ff]">
+    <section className="container mx-auto py-20 px-4 bg-[#f5f3ff] mt-[10rem]">
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         <div className="lg:w-1/2">
           <div className="relative rounded-xl overflow-hidden shadow-xl">

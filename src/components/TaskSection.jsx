@@ -2,7 +2,7 @@ import wavePurple from "../assets/wave-purple.png"
 
 export default function TaskSection() {
   return (
-    <section className="container mx-auto py-20 px-4 bg-white">
+    <section className="container mx-auto py-20 px-4 bg-white mt-[7rem]">
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         <div className="lg:w-1/2">
           <div className="relative rounded-xl overflow-hidden shadow-xl">

@@ -16,11 +16,10 @@ export default function HeroSection() {
             <div className="ml-4 text-sm font-medium">1st</div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Transform Your Business Today</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Empowering Healthcare with AI Intelligence</h1>
 
           <p className="text-lg text-gray-700 max-w-xl">
-            Say goodbye to inefficiencies and hello to success with our groundbreaking AI app. Streamline your workflow,
-            boost productivity, and maximize revenue effortlessly.
+          Unlock the future of medical innovation with AI-driven tools designed to enhance clinical decision-making, streamline documentation, and predict health risks. From fast and accurate symptom checks to proactive disease management, our platform supports patients and providers in delivering better outcomes—faster, smarter, and with precision.
           </p>
 
           <div className="flex flex-wrap gap-4">

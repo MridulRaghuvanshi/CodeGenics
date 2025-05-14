@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 px-6 bg-gray-50" id="why-us">
+    <section ref={sectionRef} className="py-16 px-6 bg-gray-50 mt-[4rem]" id="why-us">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
             animate={isInView ? "visible" : "hidden"}
             custom={index}
               key={index}
-              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 ease-out hover:scale-105"
+              className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg cursor-pointer transition-all duration-300 ease-out hover:scale-105"
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2 text-gray-700">{feature.title}</h3>
