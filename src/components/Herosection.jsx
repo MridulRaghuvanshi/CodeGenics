@@ -1,15 +1,63 @@
-import React from "react";
-import Capsule from "./Capsule";
+import pricingScreenshot from "../assets/pricing-screenshot.png"
 
-function Herosection() {
+export default function HeroSection() {
   return (
-    <div className="w-full flex justify-center items-center">
-        <div></div>
-        <div className="bg-white w-1/2 ">
-            
-        </div>
-    </div>
-  );
-}
+    <section className="container mx-auto py-12 px-4 mt-[10rem]">
+      <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="lg:w-1/2 space-y-6">
+          <div className="inline-flex items-center">
+            <div className="relative">
+              <div className="text-sm font-medium bg-white/80 rounded-full px-4 py-1 border border-gray-200">
+                Product of the Day
+              </div>
+              <div className="absolute -left-2 -right-2 -bottom-2 -top-2 border border-gray-200 rounded-full"></div>
+              <div className="absolute -left-4 -right-4 -bottom-4 -top-4 border border-gray-200 rounded-full"></div>
+            </div>
+            <div className="ml-4 text-sm font-medium">1st</div>
+          </div>
 
-export default Herosection;
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Transform Your Business Today</h1>
+
+          <p className="text-lg text-gray-700 max-w-xl">
+            Say goodbye to inefficiencies and hello to success with our groundbreaking AI app. Streamline your workflow,
+            boost productivity, and maximize revenue effortlessly.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-[#4ade80] hover:bg-[#22c55e] text-white px-8 py-6 rounded-md font-medium">
+              Buy Now
+            </button>
+            <button className="border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 px-8 py-6 rounded-md font-medium">
+              Learn More
+            </button>
+          </div>
+
+          <div className="flex items-center text-emerald-600 font-medium">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5 mr-2"
+            >
+              <rect width="20" height="14" x="2" y="5" rx="2" />
+              <line x1="2" x2="22" y1="10" y2="10" />
+            </svg>
+            <span>$350 off for the first 10 customers (2 left)</span>
+          </div>
+        </div>
+
+        <div className="lg:w-1/2">
+          <div className="relative rounded-xl overflow-hidden shadow-2xl">
+            <img src={pricingScreenshot || "/placeholder.svg"} alt="Pricing screenshot" className="w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
