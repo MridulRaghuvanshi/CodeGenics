@@ -10,15 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@tailwindcss/vite": "^4.1.6",
-    "lucide-react": "^0.509.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.0",
-    "react-slick": "^0.30.3",
-    "tailwindcss": "^4.1.6"
-=======
     "@lottiefiles/dotlottie-react": "^0.13.2",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@react-three/drei": "^10.0.7",
@@ -37,7 +28,6 @@
     "react-slick": "^0.30.3",
     "tailwindcss": "^4.1.6",
     "three": "^0.176.0"
->>>>>>> master
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

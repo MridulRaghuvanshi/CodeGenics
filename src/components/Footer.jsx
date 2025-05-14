@@ -39,7 +39,7 @@ export default function Footer() {
               build for your app, website, product or blog. SEO optimized, responsive and performant.
             </p>
 
-            <p className="text-sm text-gray-600">Copyright © Shipixen</p>
+            <p className="text-sm text-gray-600">Copyright © CodeGenics</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:w-3/4">
