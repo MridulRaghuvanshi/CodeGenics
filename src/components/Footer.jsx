@@ -1,4 +1,3 @@
-
 import Logo from '../assets/CodeGenics.jpg'
 export default function Footer() {
   return (

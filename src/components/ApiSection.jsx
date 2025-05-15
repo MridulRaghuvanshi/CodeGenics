@@ -2,7 +2,7 @@ import apiScreenshot from "../assets/api-screenshot.png"
 
 export default function ApiSection() {
   return (
-    <section className="container mx-auto py-20 px-4 bg-[#e6f7f1] text-center mt-[4rem]">
+    <section className="container mx-auto py-20 px-4 bg-[#e6f7f1] text-center mt-[7rem]">
       <div className="max-w-3xl mx-auto space-y-6">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">One-click API Integration</h2>
 

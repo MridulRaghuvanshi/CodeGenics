@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer"
 import teamImage from "../assets/team-image.jpeg"
 import officeImage from "../assets/office-image.jpg"
 import { PlayCircle } from "../components/Icons"
+import Navbar from "../components/Navbar"
 
 export default function About() {
   const [ref1, inView1] = useInView({
@@ -22,12 +23,17 @@ export default function About() {
   })
 
   return (
+    <div>
+      <div>
+       <Navbar />
+      </div>
+      
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex-1"
+      className="flex-1 mt-[4rem]"
     >
       {/* Hero Section with dark background */}
       <section className="bg-gray-900 text-white py-24">
@@ -325,5 +331,6 @@ export default function About() {
         </div>
       </section>
     </motion.div>
+    </div>
   )
 }

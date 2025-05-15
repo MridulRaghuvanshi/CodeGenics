@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 start-0 w-full z-50 transition-all duration-300 ${
     isScrolled
       ? "bg-white/50 backdrop-blur-md shadow-md"
-      : "bg-transparent"
+      : "bg-white"
   }`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -35,7 +35,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
             <Link to="/">
               <p  className="block py-2 px-3 text-gray-900 rounded-sm hover:text-sky-700 md:hover:bg-transparent  transition-all duration-300 ease-out hover:scale-105" aria-current="page">Home</p>
             </Link>

@@ -64,6 +64,10 @@ export default function Contact() {
   }
 
   return (
+    <div>
+    <div>
+       <Navbar />
+      </div>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -78,7 +82,7 @@ export default function Contact() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center mt-[4rem]"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
             <p className="text-xl text-purple-200 mb-8">
@@ -417,5 +421,6 @@ export default function Contact() {
         </div>
       </section>
     </motion.div>
+    </div>
   )
 }
