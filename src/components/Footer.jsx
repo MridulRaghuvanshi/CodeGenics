@@ -1,3 +1,4 @@
+import Logo from '../assets/CodeGenics.jpg'
 export default function Footer() {
   return (
     <footer className="bg-[#f5f3ff] py-16 mt-[4rem]">
@@ -5,7 +6,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-purple-800 h-12 w-12 rounded-lg flex items-center justify-center">
+              {/* <div className="bg-purple-800 h-12 w-12 rounded-lg flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -28,8 +29,8 @@ export default function Footer() {
                   <path d="M12 17h.01" />
                   <path d="M17 17h.01" />
                 </svg>
-              </div>
-              <span className="text-2xl font-bold">Shipixen</span>
+              </div> */}
+              <span className="text-2xl font-bold"><img src={Logo} className="w-60 h-20" alt="CodeGenics Logo" /></span>
             </div>
 
             <p className="text-gray-700 mb-4">
@@ -37,7 +38,7 @@ export default function Footer() {
               build for your app, website, product or blog. SEO optimized, responsive and performant.
             </p>
 
-            <p className="text-sm text-gray-600">Copyright © Shipixen</p>
+            <p className="text-sm text-gray-600">Copyright © CodeGenics</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:w-3/4">
@@ -97,7 +98,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#" className="text-gray-600 hover:text-gray-900">
-                    About Shipixen
+                    About CodeGenics
                   </a>
                 </li>
                 <li>
@@ -199,7 +200,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-sm text-gray-600">© 2025 • Shipixen</div>
+          <div className="text-sm text-gray-600">© 2025 • CodeGenics</div>
         </div>
       </div>
     </footer>
