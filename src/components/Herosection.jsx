@@ -1,9 +1,29 @@
-import pricingScreenshot from "../assets/pricing-screenshot.png"
+import pricingScreenshot from "../assets/pricing-screenshot.png";
+import backgroundVideo from "../assets/dna.mp4"; // Your animated DNA video
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto py-12 px-4 mt-[10rem]">
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
+    <section className="relative w-full h-auto overflow-hidden py-12 px-4 mt-[10rem]">
+      
+      {/* 🔬 Background DNA video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src={backgroundVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* 🧊 Overlay for readability */}
+      /
+
+      {/* 🚀 Main Hero Content */}
+      <div className="relative z-20 container mx-auto flex flex-col lg:flex-row items-center gap-12">
+        
+        {/* 📄 Text Content */}
         <div className="lg:w-1/2 space-y-6">
           <div className="inline-flex items-center">
             <div className="relative">
@@ -16,10 +36,12 @@ export default function HeroSection() {
             <div className="ml-4 text-sm font-medium">1st</div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Empowering Healthcare with AI Intelligence</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            Empowering Healthcare with AI Intelligence
+          </h1>
 
-          <p className="text-lg text-gray-700 max-w-xl">
-          Unlock the future of medical innovation with AI-driven tools designed to enhance clinical decision-making, streamline documentation, and predict health risks. From fast and accurate symptom checks to proactive disease management, our platform supports patients and providers in delivering better outcomes—faster, smarter, and with precision.
+          <p className="text-lg text-gray-800 max-w-xl">
+            Unlock the future of medical innovation with AI-driven tools designed to enhance clinical decision-making, streamline documentation, and predict health risks. From fast and accurate symptom checks to proactive disease management, our platform supports patients and providers in delivering better outcomes—faster, smarter, and with precision.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -51,12 +73,17 @@ export default function HeroSection() {
           </div>
         </div>
 
+        {/* 🖼️ Right side image */}
         <div className="lg:w-1/2">
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            <img src={pricingScreenshot || "/placeholder.svg"} alt="Pricing screenshot" className="w-full" />
+            {/* <img
+              src={pricingScreenshot || "/placeholder.svg"}
+              alt="Pricing screenshot"
+              className="w-full"
+            /> */}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
