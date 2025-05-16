@@ -3,7 +3,7 @@ import backgroundVideo from "../assets/dna.mp4"; // Your animated DNA video
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-auto overflow-hidden py-12 px-4 mt-[10rem]">
+    <section className="relative w-full h-auto overflow-hidden py-12 px-4 mt-[5.1rem]">
       
       {/* 🔬 Background DNA video */}
       <video
@@ -11,7 +11,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 ml-[27rem]"
       >
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
