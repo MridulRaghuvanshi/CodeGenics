@@ -18,7 +18,7 @@ export default function HeroSection() {
       </video>
 
       {/* 🧊 Overlay for readability */}
-      /
+      
 
       {/* 🚀 Main Hero Content */}
       <div className="relative z-20 container mx-auto flex flex-col lg:flex-row items-center gap-12">

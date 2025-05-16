@@ -1,43 +1,10 @@
-import React, { useState } from "react";
+// SymptomCheck.jsx
+import React, { useState, useRef, useEffect } from "react";
 
-const aiObservations = [
-  {
-    keywords: ["fever", "temperature", "hot"],
-    response: "A fever may indicate an infection. Stay hydrated and monitor your temperature. If it persists, consult a doctor."
-  },
-  {
-    keywords: ["cough", "throat", "sore"],
-    response: "A cough and sore throat could be signs of a cold or flu. Rest and drink warm fluids. Seek care if symptoms worsen."
-  },
-  {
-    keywords: ["headache", "migraine"],
-    response: "Headaches can be caused by stress, dehydration, or other factors. Rest and drink water. If severe, seek medical advice."
-  },
-  {
-    keywords: ["chest pain", "breath", "breathing"],
-    response: "Chest pain or difficulty breathing can be serious. Please seek immediate medical attention."
-  },
-  {
-    keywords: ["stomach", "nausea", "vomit"],
-    response: "Stomach issues may be due to infection or indigestion. Stay hydrated and eat light foods."
-  }
-];
-
-function getAIResponse(symptom) {
-  const lower = symptom.toLowerCase();
-  for (const obs of aiObservations) {
-    if (obs.keywords.some(k => lower.includes(k))) {
-      return obs.response;
-    }
-  }
-  return "Your symptoms are noted. For an accurate diagnosis, please consult a healthcare professional.";
-}
-
-
-
-export default function Symptom() {
+export default function SymptomCheck({ onReset }) {
   const [symptom, setSymptom] = useState("");
   const [messages, setMessages] = useState([]);
+  const inputRef = useRef(null);
 
   const handleInputChange = (e) => setSymptom(e.target.value);
 
@@ -50,30 +17,41 @@ export default function Symptom() {
     setSymptom("");
   };
 
+  const handleReset = () => {
+    setMessages([]);
+    setSymptom("");
+    inputRef.current?.focus();
+  };
+
+  useEffect(() => {
+    if (onReset) {
+        onReset(() => handleReset);
+    }
+  }, [onReset]);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           type="text"
           value={symptom}
           onChange={handleInputChange}
           placeholder="Describe your symptom..."
+          className="w-[70%] rounded-lg"
         />
-        <button type="submit">Submit</button>
-        <button
-          type="button"
-          onClick={() => {
-            setMessages([]);
-            setSymptom("");
-          }}
-          style={{ marginLeft: "8px" }}
-        >
-          Start new check
-        </button>
+        <button type="submit" className="ml-[2.5rem] text-sm bg-green-700 py-1 px-2 rounded-2xl text-white cursor-pointer transition-all duration-300 hover:scale-105 ">Submit</button>
       </form>
-      <div>
+
+      <div style={{ marginTop: "20px" }}>
         {messages.map((msg, idx) => (
-          <div key={idx} style={{ textAlign: msg.sender === "user" ? "right" : "left" }}>
+          <div
+            key={idx}
+            style={{
+              textAlign: msg.sender === "user" ? "right" : "left",
+              margin: "4px 0",
+            }}
+          >
             <strong>{msg.sender === "user" ? "You" : "AI"}:</strong> {msg.text}
           </div>
         ))}
@@ -82,3 +60,18 @@ export default function Symptom() {
   );
 }
 
+// Dummy response generator (or import from utils)
+function getAIResponse(symptom) {
+  const lower = symptom.toLowerCase();
+  const observations = [
+    { keywords: ["fever", "temperature", "hot"], response: "A fever may indicate an infection. Stay hydrated..." },
+    { keywords: ["cough", "throat", "sore"], response: "A cough and sore throat could be signs of a cold..." },
+    { keywords: ["headache", "migraine"], response: "Headaches can be caused by stress or dehydration..." },
+    { keywords: ["chest pain", "breath"], response: "Chest pain or breathing issues can be serious..." },
+    { keywords: ["stomach", "nausea", "vomit"], response: "Stomach issues may be from infection or indigestion..." },
+  ];
+  for (const obs of observations) {
+    if (obs.keywords.some(k => lower.includes(k))) return obs.response;
+  }
+  return "Your symptoms are noted. Please consult a healthcare professional.";
+}
