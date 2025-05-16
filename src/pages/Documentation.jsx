@@ -92,17 +92,17 @@ export default function Documentation() {
       transition={{ duration: 0.5 }}
       className="flex-1 min-h-screen bg-white relative"
     >
-      {/* Background */}
+      {/* Background
       <video
               autoPlay
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover z-0 ml-[27rem]"
+              className="absolute inset-0 w-full h-full object-cover z-0 ml-[6rem]"
             >
               <source src={backgroundVideo} type="video/mp4" />
               Your browser does not support the video tag.
-            </video>
+            </video> */}
 
       <div className="container mx-auto px-8 py-24 relative z-10">
       <Navbar />

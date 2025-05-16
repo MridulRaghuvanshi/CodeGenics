@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import SymptomCheck from "../components/SymptomCheck";
-import Meter from "../components/Meter";
+import RiskMeter from "../components/Meter";
 
 function Symptom() {
   const [resetForm, setResetForm] = useState(null);
@@ -22,7 +22,7 @@ function Symptom() {
         </div>
         <div className="p-8 animate-fade-in-up">
           <SymptomCheck onReset={setResetForm} onRiskChange={setRiskValue} /> {/* Pass setter */}
-          <Meter value={riskValue} /> {/* Pass value */}
+          <RiskMeter value={riskValue} /> {/* Pass value */}
         </div>
         <div className="bg-emerald-50 rounded-b-3xl px-6 py-3 flex items-center justify-between text-xs text-emerald-700 border-t animate-fade-in">
           <button
