@@ -5,10 +5,7 @@ export default function RiskMeter() {
 
   return (
     <div
-      className="p-6 rounded-lg relative"
-      style={{
-        background: "linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)",
-      }}
+      
     >
       <GaugeComponent
         value={riskScore}
@@ -68,15 +65,16 @@ export default function RiskMeter() {
           height: "300px",
           background: "transparent",
         }}
+        
       />
 
       {/* Adjusted position of Risk Score text */}
       <div
         style={{
           position: "absolute",
-          bottom: "150px", // moved up from 35px to 85px
-          width: "85%",    
-          textAlign: "center",
+          bottom: "120px", // moved up from 35px to 85px
+          marginBlockEnd:"100px",  
+          marginInlineStart:"240px",
           fontSize: "20px",
           fontWeight: "bold",
           color: "#333",

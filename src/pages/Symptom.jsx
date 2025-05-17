@@ -8,8 +8,11 @@ function Symptom() {
   const [riskValue, setRiskValue] = useState(0); // Add this line
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-emerald-100 via-white to-emerald-50 animate-bg-pan">
+    <section >
       <Navbar />
+      <div className="flex justify-center items-center gap-[7rem]">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
+      
       <div className="w-full max-w-md bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-0 mt-12 border border-emerald-100 transition-transform duration-300 hover:scale-105 hover:shadow-emerald-200">
         <div className="bg-emerald-600 rounded-t-3xl px-6 py-5 flex items-center gap-3 relative overflow-hidden">
           <span className="relative flex h-4 w-4">
@@ -20,9 +23,9 @@ function Symptom() {
             AI Symptom Checker
           </h2>
         </div>
-        <div className="p-8 animate-fade-in-up">
+        <div className="p-8 animate-fade-in-up ">
           <SymptomCheck onReset={setResetForm} onRiskChange={setRiskValue} /> {/* Pass setter */}
-          <RiskMeter value={riskValue} /> {/* Pass value */}
+          
         </div>
         <div className="bg-emerald-50 rounded-b-3xl px-6 py-3 flex items-center justify-between text-xs text-emerald-700 border-t animate-fade-in">
           <button
@@ -78,6 +81,11 @@ function Symptom() {
         `}
       </style>
     </div>
+    <div className="w-[40%] h-[50%]">
+      <RiskMeter value={riskValue} /> {/* Pass value */}
+    </div>
+    </div>
+    </section>
   );
 }
 
