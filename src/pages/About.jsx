@@ -1,336 +1,312 @@
-import React from "react"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import teamImage from "../assets/team-image.jpeg"
-import officeImage from "../assets/office-image.jpg"
-import { PlayCircle } from "../components/Icons"
-import Navbar from "../components/Navbar"
+import { motion } from "framer-motion";
+import { cn } from "../lib/Cn";
+import Navbar from "../components/Navbar";
+// import "../components/"; // Reusing the same CSS for fonts
 
-export default function About() {
-  const [ref1, inView1] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+function FloatingElement({
+  className,
+  delay = 0,
+  size = 200,
+  rotate = 0,
+  color = "bg-blue-500/10",
+  shape = "rounded-full",
+}) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+        rotate: rotate - 10,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        rotate: rotate,
+      }}
+      transition={{
+        duration: 1.8,
+        delay,
+        ease: [0.23, 0.86, 0.39, 0.96],
+      }}
+      className={cn("absolute", className)}
+    >
+      <motion.div
+        animate={{
+          y: [0, 10, 0],
+          x: [0, 5, 0],
+        }}
+        transition={{
+          duration: 8 + Math.random() * 5,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+        style={{
+          width: size,
+          height: size,
+        }}
+        className="relative"
+      >
+        <div
+          className={cn(
+            "absolute inset-0",
+            shape,
+            color,
+            "backdrop-blur-[1px] border border-white/10",
+            "shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]"
+          )}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
-  const [ref2, inView2] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+function TeamMember({ name, role, image, delay = 0 }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay }}
+      className="flex flex-col items-center"
+    >
+      <div className="relative w-40 h-40 mb-4 overflow-hidden rounded-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 z-10" />
+        <img
+          src={image || "/placeholder.svg"}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="text-xl font-semibold text-white mb-1">{name}</h3>
+      <p className="text-white/50 text-sm">{role}</p>
+    </motion.div>
+  );
+}
 
-  const [ref3, inView3] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+export default function AboutPage() {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.3 + i * 0.2,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
 
   return (
-    <div>
-      <div>
-       <Navbar />
+    <div className="relative min-h-screen w-full overflow-hidden bg-[#030303]">
+      <Navbar />
+
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-indigo-500/[0.03] blur-3xl" />
+
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <FloatingElement
+          delay={0.2}
+          size={300}
+          rotate={15}
+          color="bg-blue-500/[0.08]"
+          shape="rounded-3xl"
+          className="left-[-5%] top-[20%]"
+        />
+        <FloatingElement
+          delay={0.4}
+          size={200}
+          rotate={-10}
+          color="bg-indigo-500/[0.08]"
+          shape="rounded-full"
+          className="right-[10%] top-[15%]"
+        />
+        <FloatingElement
+          delay={0.6}
+          size={150}
+          rotate={25}
+          color="bg-cyan-500/[0.08]"
+          shape="rounded-lg"
+          className="left-[15%] bottom-[10%]"
+        />
+        <FloatingElement
+          delay={0.5}
+          size={250}
+          rotate={-20}
+          color="bg-blue-500/[0.05]"
+          shape="rounded-[30%]"
+          className="right-[-5%] bottom-[20%]"
+        />
       </div>
-      
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex-1 mt-[4rem]"
-    >
-      {/* Hero Section with dark background */}
-      <section className="bg-gray-900 text-white py-24">
-        <div className="container mx-auto px-4">
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 md:px-6 pt-32 pb-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Section: Our Story */}
           <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-center"
+            custom={0}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-20 text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-purple-500 bg-clip-text text-transparent">
-              Our Story
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6">
+              <span className="text-sm text-white/60 tracking-wide">Our Story</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">Crafting Digital</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-white/90 to-indigo-300 font-pacifico">
+                Excellence
+              </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              We're on a mission to transform how businesses operate through the power of artificial intelligence.
+            <p className="text-lg text-white/40 leading-relaxed font-light max-w-2xl mx-auto">
+              Founded in 2018, our journey began with a simple vision: to transform how businesses connect with their audience in the digital realm. What started as a small team of passionate designers and developers has evolved into a creative powerhouse dedicated to pushing the boundaries of digital innovation.
             </p>
-            <div className="flex justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-emerald-500 to-emerald-700 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg"
-              >
-                Our Journey
-              </motion.button>
+          </motion.div>
+
+          {/* Section: Our Values */}
+          <motion.div
+            custom={1}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-24"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Innovation</h3>
+                <p className="text-white/50">We constantly explore new technologies and approaches to deliver cutting-edge solutions that set our clients apart.</p>
+              </div>
+              
+              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Collaboration</h3>
+                <p className="text-white/50">We believe in the power of teamwork, working closely with our clients to understand their unique needs and goals.</p>
+              </div>
+              
+              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">Excellence</h3>
+                <p className="text-white/50">We are committed to delivering exceptional quality in everything we do, from design and development to customer service.</p>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Our Mission */}
-      <section className="py-20 bg-white" ref={ref1}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={inView1 ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8 }}
-              className="md:w-1/2"
-            >
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">Our Mission</h2>
-              <p className="text-lg text-gray-700 mb-6">
-                At Emerald AI, we believe that artificial intelligence should be accessible to everyone. Our mission is
-                to democratize AI technology and make it work for businesses of all sizes.
+          {/* Section: Our Team */}
+          <motion.div
+            custom={2}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white mb-4">Meet Our Team</h2>
+              <p className="text-white/40 max-w-2xl mx-auto">
+                Our diverse team of creative minds, technical experts, and strategic thinkers work together to bring your vision to life.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
-                We started in 2020 with a small team of passionate engineers and AI specialists who wanted to bridge the
-                gap between complex AI capabilities and everyday business needs.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <span className="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium">
-                  Innovation
-                </span>
-                <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">
-                  Accessibility
-                </span>
-                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Excellence</span>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={inView1 ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:w-1/2"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img src={teamImage || "/placeholder.svg"} alt="Our team" className="w-full" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <div className="p-6">
-                    <h3 className="text-white text-2xl font-bold">Our Amazing Team</h3>
-                    <p className="text-white/80">Passionate about creating the future of AI</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+              <TeamMember 
+                name="Alex Morgan" 
+                role="Creative Director" 
+                image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                delay={0.3} 
+              />
+              <TeamMember 
+                name="Sarah Chen" 
+                role="Lead Developer" 
+                image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                delay={0.4} 
+              />
+              <TeamMember 
+                name="Michael Kim" 
+                role="UX Designer" 
+                image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                delay={0.5} 
+              />
+              <TeamMember 
+                name="Emma Wilson" 
+                role="Project Manager" 
+                image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                delay={0.6} 
+              />
+            </div>
+          </motion.div>
+
+          {/* Section: Our Approach */}
+          <motion.div
+            custom={3}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 backdrop-blur-sm border border-white/[0.05] rounded-2xl p-8 md:p-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Approach</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-blue-400 font-semibold">1</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Discovery</h3>
+                    <p className="text-white/50">We begin by understanding your business, goals, and target audience to create a strategic foundation for your project.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-indigo-400 font-semibold">2</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Design</h3>
+                    <p className="text-white/50">Our creative team crafts visually stunning and user-focused designs that align with your brand identity and project goals.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-cyan-400 font-semibold">3</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Development</h3>
+                    <p className="text-white/50">Our developers bring designs to life with clean, efficient code, ensuring your project is responsive, fast, and scalable.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-blue-400 font-semibold">4</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">Delivery & Support</h3>
+                    <p className="text-white/50">We don't just deliver and disappear. We provide ongoing support and optimization to ensure your digital presence continues to evolve and succeed.</p>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Values */}
-      <section className="py-20 bg-gradient-to-br from-purple-900 to-indigo-900 text-white" ref={ref2}>
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={inView2 ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-6">Our Core Values</h2>
-            <p className="text-lg text-purple-200">
-              These principles guide everything we do, from product development to customer service.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={inView2 ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all"
-            >
-              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-8 w-8 text-white"
-                >
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Innovation</h3>
-              <p className="text-purple-200">
-                We constantly push the boundaries of what's possible with AI, developing cutting-edge solutions that
-                solve real-world problems.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={inView2 ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all"
-            >
-              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-8 w-8 text-white"
-                >
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Customer Focus</h3>
-              <p className="text-purple-200">
-                We put our customers at the center of everything we do, ensuring our products solve their specific
-                challenges and exceed their expectations.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={inView2 ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all"
-            >
-              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mb-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-8 w-8 text-white"
-                >
-                  <path d="M12 2v20" />
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Integrity</h3>
-              <p className="text-purple-200">
-                We operate with transparency and honesty, building trust with our customers, partners, and within our
-                team.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* How to Use Our Website */}
-      <section className="py-20 bg-gray-50" ref={ref3}>
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={inView3 ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">How to Use Our Website</h2>
-            <p className="text-lg text-gray-700">
-              Watch our short demo video to learn how to get the most out of Emerald AI's features.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={inView3 ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video bg-gray-900">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <PlayCircle className="h-20 w-20 text-white opacity-80 mx-auto mb-4" />
-                  <p className="text-white text-lg font-medium">Watch Demo Video</p>
-                </div>
-              </div>
-              <img
-                src={officeImage || "/placeholder.svg"}
-                alt="Office environment"
-                className="w-full h-full object-cover opacity-50"
-              />
-            </div>
-            <div className="mt-8 text-center">
-              <p className="text-gray-600">
-                Don't have time for the video? Check out our{" "}
-                <a href="#" className="text-emerald-600 font-medium hover:underline">
-                  quick start guide
-                </a>{" "}
-                instead.
-              </p>
             </div>
           </motion.div>
         </div>
-      </section>
+      </div>
 
-      {/* Our Office */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">Visit Our Office</h2>
-              <p className="text-lg text-gray-700 mb-6">
-                We're headquartered in San Francisco with offices in New York, London, and Singapore. We'd love to meet
-                you in person!
-              </p>
-              <div className="bg-gray-100 p-6 rounded-xl">
-                <h3 className="font-bold text-xl mb-2">San Francisco HQ</h3>
-                <p className="text-gray-700">
-                  123 Innovation Drive
-                  <br />
-                  San Francisco, CA 94107
-                  <br />
-                  United States
-                </p>
-                <button className="mt-4 text-emerald-600 font-medium hover:underline flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4 mr-1"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  Get Directions
-                </button>
-              </div>
-            </div>
-            <div className="md:w-1/2">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-square bg-emerald-100 rounded-xl flex items-center justify-center">
-                  <span className="text-6xl font-bold text-emerald-600">50+</span>
-                </div>
-                <div className="aspect-square bg-purple-100 rounded-xl p-6 flex flex-col justify-center">
-                  <h3 className="font-bold text-xl text-purple-800 mb-2">Team Members</h3>
-                  <p className="text-purple-700">Passionate experts from around the world</p>
-                </div>
-                <div className="aspect-square bg-blue-100 rounded-xl p-6 flex flex-col justify-center">
-                  <h3 className="font-bold text-xl text-blue-800 mb-2">Founded</h3>
-                  <p className="text-blue-700">Established in 2020 with a vision for AI-powered future</p>
-                </div>
-                <div className="aspect-square bg-amber-100 rounded-xl flex items-center justify-center">
-                  <span className="text-6xl font-bold text-amber-600">4</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </motion.div>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </div>
-  )
+  );
 }

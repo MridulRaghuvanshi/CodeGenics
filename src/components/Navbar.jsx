@@ -27,8 +27,8 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Symptom Checker", href: "/Symptom" },
-    { name: "Clinical Docs", href: "/Documentation" },
-    { name: "Contact", href: "/Contact" },
+    { name: "Clinical Docs", href: "/Docs" },
+    { name: "Contact", href: "/contacts" },
   ]
 
   return (
@@ -51,7 +51,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide relative group"
               >
                 {link.name}
