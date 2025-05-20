@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import backgroundVideo from "../assets/dna.mp4"
@@ -90,67 +89,80 @@ export default function Documentation() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex-1 min-h-screen bg-white relative"
+      className="flex-1 min-h-screen bg-[#030303] relative overflow-hidden"
     >
-      {/* Background
-      <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover z-0 ml-[6rem]"
-            >
-              <source src={backgroundVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video> */}
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-indigo-500/[0.05] blur-3xl" />
+      
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 15 }}
+          transition={{ duration: 1.8, delay: 0.2 }}
+          className="absolute left-[-5%] top-[20%]"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0], x: [0, 5, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 300, height: 300 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-3xl bg-blue-500/[0.08] backdrop-blur-[1px] border border-white/10 shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]" />
+          </motion.div>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
+          animate={{ opacity: 1, scale: 1, rotate: -10 }}
+          transition={{ duration: 1.8, delay: 0.4 }}
+          className="absolute right-[10%] bottom-[15%]"
+        >
+          <motion.div
+            animate={{ y: [0, 15, 0], x: [0, -5, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            style={{ width: 250, height: 250 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-indigo-500/[0.08] backdrop-blur-[1px] border border-white/10 shadow-[0_8px_32px_0_rgba(255,255,255,0.05)]" />
+          </motion.div>
+        </motion.div>
+      </div>
 
       <div className="container mx-auto px-8 py-24 relative z-10">
       <Navbar />
         <div className="flex flex-col lg:flex-row">
-          {/* Left sidebar navigation */}
-          {/* <div className="lg:w-1/6 mb-8 lg:mb-0">
-            <div className="flex flex-col space-y-6">
-              <div className="text-gray-700 text-sm">Intro</div>
-              <div className="text-gray-700 text-sm">Expertise</div>
-              <div className="text-gray-700 text-sm">Technology</div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-black rounded-full mr-2"></div>
-                <div className="text-gray-900 text-sm font-medium">Documentation</div>
-              </div>
-              <div className="text-gray-400 text-sm">Services</div>
-              <div className="text-gray-400 text-sm">Contacts</div>
-            </div>
-          </div> */}
-
           {/* Main content */}
           <div className="lg:w-5/6 lg:pl-8 flex items-center justify-center">
             <div className="max-w-4xl">
-              <div className="uppercase text-sm font-medium tracking-wider mb-6 text-gray-900">
+              <div className="uppercase text-sm font-medium tracking-wider mb-6 text-blue-400">
                 AUTOMATED CLINICAL DOCUMENTATION
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
                 Voice-powered
                 <br />
-                clinical notes
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-white/90 to-indigo-300">
+                  clinical notes
+                </span>
               </h1>
 
-              <p className="text-base mb-10 text-gray-700">
+              <p className="text-base mb-10 text-white/60">
                 Streamline your workflow with AI-powered documentation. Simply speak and let our
                 <br />
                 advanced NLP technology generate accurate clinical notes in seconds.
               </p>
 
               {/* Tabs */}
-              <div className="flex border-b border-gray-200 mb-8">
+              <div className="flex border-b border-white/10 mb-8">
                 <button
-                  className={`pb-4 px-6 font-medium text-sm ${activeTab === "record" ? "text-purple-700 border-b-2 border-purple-700" : "text-gray-500"}`}
+                  className={`pb-4 px-6 font-medium text-sm ${activeTab === "record" ? "text-blue-400 border-b-2 border-blue-400" : "text-white/50"}`}
                   onClick={() => setActiveTab("record")}
                 >
                   Voice Recording
                 </button>
                 <button
-                  className={`pb-4 px-6 font-medium text-sm ${activeTab === "notes" ? "text-purple-700 border-b-2 border-purple-700" : "text-gray-500"}`}
+                  className={`pb-4 px-6 font-medium text-sm ${activeTab === "notes" ? "text-blue-400 border-b-2 border-blue-400" : "text-white/50"}`}
                   onClick={() => setActiveTab("notes")}
                   disabled={!clinicalNotes}
                 >
@@ -160,13 +172,13 @@ export default function Documentation() {
 
               {/* Recording Interface */}
               {activeTab === "record" && (
-                <div className="bg-gray-50 rounded-xl p-8 mb-8">
+                <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-8 mb-8">
                   <div className="flex flex-col items-center mb-8">
                     <div
-                      className={`w-24 h-24 rounded-full flex items-center justify-center mb-4 ${isRecording ? "bg-red-50 animate-pulse" : "bg-gray-100"}`}
+                      className={`w-24 h-24 rounded-full flex items-center justify-center mb-4 ${isRecording ? "bg-red-900/20 animate-pulse" : "bg-white/[0.03]"}`}
                     >
                       <button
-                        className={`w-16 h-16 rounded-full flex items-center justify-center ${isRecording ? "bg-red-500 hover:bg-red-600" : "bg-purple-600 hover:bg-purple-700"}`}
+                        className={`w-16 h-16 rounded-full flex items-center justify-center ${isRecording ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"}`}
                         onClick={isRecording ? handleStopRecording : handleStartRecording}
                       >
                         {isRecording ? (
@@ -178,13 +190,13 @@ export default function Documentation() {
                     </div>
                     <div className="text-center">
                       {isRecording ? (
-                        <div className="text-red-500 font-medium flex items-center">
+                        <div className="text-red-400 font-medium flex items-center">
                           <span className="mr-2">Recording</span>
                           <Clock className="h-4 w-4" />
                           <span className="ml-1">{formatTime(recordingTime)}</span>
                         </div>
                       ) : (
-                        <div className="text-gray-500 font-medium">Click to start recording</div>
+                        <div className="text-white/50 font-medium">Click to start recording</div>
                       )}
                     </div>
                   </div>
@@ -192,10 +204,10 @@ export default function Documentation() {
                   {/* Transcription */}
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-2">
-                      <h3 className="font-medium text-gray-900">Transcription</h3>
+                      <h3 className="font-medium text-white">Transcription</h3>
                       {transcription && (
                         <button
-                          className="text-sm text-purple-600 hover:text-purple-800 flex items-center"
+                          className="text-sm text-blue-400 hover:text-blue-300 flex items-center"
                           onClick={handleReset}
                         >
                           <RotateCcw className="h-3 w-3 mr-1" />
@@ -203,11 +215,11 @@ export default function Documentation() {
                         </button>
                       )}
                     </div>
-                    <div className="bg-white border border-gray-200 rounded-lg p-4 min-h-[120px]">
+                    <div className="bg-white/[0.03] border border-white/10 rounded-lg p-4 min-h-[120px]">
                       {transcription ? (
-                        <p className="text-gray-700">{transcription}</p>
+                        <p className="text-white/80">{transcription}</p>
                       ) : (
-                        <p className="text-gray-400 italic">Transcription will appear here...</p>
+                        <p className="text-white/30 italic">Transcription will appear here...</p>
                       )}
                     </div>
                   </div>
@@ -216,7 +228,7 @@ export default function Documentation() {
                   {transcription && !clinicalNotes && (
                     <div className="flex justify-center">
                       <button
-                        className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-6 py-3 rounded-lg font-medium flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
                         onClick={handleGenerateNotes}
                         disabled={isProcessing}
                       >
@@ -239,10 +251,10 @@ export default function Documentation() {
 
               {/* Clinical Notes */}
               {activeTab === "notes" && clinicalNotes && (
-                <div className="bg-gray-50 rounded-xl p-8 mb-8">
+                <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-8 mb-8">
                   <div className="flex justify-between items-center mb-6">
-                    <h3 className="font-medium text-gray-900 text-lg">Generated Clinical Notes</h3>
-                    <div className="flex items-center text-green-600">
+                    <h3 className="font-medium text-white text-lg">Generated Clinical Notes</h3>
+                    <div className="flex items-center text-green-400">
                       <Check className="h-4 w-4 mr-1" />
                       <span className="text-sm font-medium">AI-Generated</span>
                     </div>
@@ -250,42 +262,42 @@ export default function Documentation() {
 
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-sm font-medium uppercase text-gray-500 mb-2">Subjective</h4>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <p className="text-gray-700">{clinicalNotes.subjective}</p>
+                      <h4 className="text-sm font-medium uppercase text-blue-400 mb-2">Subjective</h4>
+                      <div className="bg-white/[0.03] border border-white/10 rounded-lg p-4">
+                        <p className="text-white/80">{clinicalNotes.subjective}</p>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-medium uppercase text-gray-500 mb-2">Objective</h4>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <p className="text-gray-700 whitespace-pre-line">{clinicalNotes.objective}</p>
+                      <h4 className="text-sm font-medium uppercase text-blue-400 mb-2">Objective</h4>
+                      <div className="bg-white/[0.03] border border-white/10 rounded-lg p-4">
+                        <p className="text-white/80 whitespace-pre-line">{clinicalNotes.objective}</p>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-medium uppercase text-gray-500 mb-2">Assessment</h4>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <p className="text-gray-700 whitespace-pre-line">{clinicalNotes.assessment}</p>
+                      <h4 className="text-sm font-medium uppercase text-blue-400 mb-2">Assessment</h4>
+                      <div className="bg-white/[0.03] border border-white/10 rounded-lg p-4">
+                        <p className="text-white/80 whitespace-pre-line">{clinicalNotes.assessment}</p>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-medium uppercase text-gray-500 mb-2">Plan</h4>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <p className="text-gray-700 whitespace-pre-line">{clinicalNotes.plan}</p>
+                      <h4 className="text-sm font-medium uppercase text-blue-400 mb-2">Plan</h4>
+                      <div className="bg-white/[0.03] border border-white/10 rounded-lg p-4">
+                        <p className="text-white/80 whitespace-pre-line">{clinicalNotes.plan}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex justify-between mt-8">
                     <button
-                      className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-100"
+                      className="border border-white/10 text-white/70 px-4 py-2 rounded-lg font-medium hover:bg-white/[0.05]"
                       onClick={() => setActiveTab("record")}
                     >
                       Back to Recording
                     </button>
-                    <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium">
+                    <button className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-4 py-2 rounded-lg font-medium">
                       Save to Patient Record
                     </button>
                   </div>
@@ -294,11 +306,11 @@ export default function Documentation() {
 
               {/* Features */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-purple-600"
+                      className="h-6 w-6 text-blue-400"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -311,17 +323,17 @@ export default function Documentation() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-medium text-lg mb-2">HIPAA Compliant</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="font-medium text-lg mb-2 text-white">HIPAA Compliant</h3>
+                  <p className="text-white/60 text-sm">
                     All data is encrypted and processed in compliance with healthcare privacy regulations.
                   </p>
                 </div>
 
-                <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                  <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-purple-600"
+                      className="h-6 w-6 text-indigo-400"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -334,17 +346,17 @@ export default function Documentation() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-medium text-lg mb-2">Real-time Processing</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="font-medium text-lg mb-2 text-white">Real-time Processing</h3>
+                  <p className="text-white/60 text-sm">
                     Advanced NLP algorithms convert speech to structured clinical documentation in seconds.
                   </p>
                 </div>
 
-                <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl p-6 hover:bg-white/[0.04] transition-colors duration-300">
+                  <div className="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-purple-600"
+                      className="h-6 w-6 text-cyan-400"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -357,8 +369,8 @@ export default function Documentation() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-medium text-lg mb-2">EHR Integration</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="font-medium text-lg mb-2 text-white">EHR Integration</h3>
+                  <p className="text-white/60 text-sm">
                     Seamlessly integrates with major electronic health record systems for efficient workflow.
                   </p>
                 </div>
@@ -370,7 +382,7 @@ export default function Documentation() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 right-8 z-10">
-        <button className="bg-black text-white rounded-full px-4 py-2 flex items-center text-sm">
+        <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full px-4 py-2 flex items-center text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 mr-2"
@@ -383,6 +395,9 @@ export default function Documentation() {
           Scroll for more
         </button>
       </div>
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </motion.div>
   )
 }

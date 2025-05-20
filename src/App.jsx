@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Contact from './pages/contact';
+import Contact from './pages/Contact';
 import Symptom from './pages/Symptom';
 import Documentation from './pages/Documentation';
 import About from './pages/About';
