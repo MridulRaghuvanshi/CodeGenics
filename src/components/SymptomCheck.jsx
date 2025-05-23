@@ -1,4 +1,3 @@
-// SymptomCheck.jsx
 import React, { useState, useRef, useEffect } from "react";
 
 export default function SymptomCheck({ onReset }) {
@@ -31,28 +30,43 @@ export default function SymptomCheck({ onReset }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex items-center">
         <input
           ref={inputRef}
           type="text"
           value={symptom}
           onChange={handleInputChange}
           placeholder="Describe your symptom..."
-          className="w-[70%] rounded-lg"
+          className="w-[70%] bg-white/[0.03] border border-white/10 text-white placeholder-white/40 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500/50"
         />
-        <button type="submit" className="ml-[3rem] text-sm bg-green-700 py-1 px-2 rounded-2xl text-white cursor-pointer transition-all duration-300 hover:scale-105 ">Submit</button>
+        <button 
+          type="submit" 
+          className="ml-[2.5rem] text-sm bg-gradient-to-r from-blue-500 to-indigo-600 py-1 px-3 rounded-2xl text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20 shadow-sm"
+        >
+          Submit
+        </button>
       </form>
 
-      <div style={{ marginTop: "20px" }}>
+      <div className="mt-5 space-y-2">
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            style={{
-              textAlign: msg.sender === "user" ? "right" : "left",
-              margin: "4px 0",
-            }}
+            className={`${
+              msg.sender === "user" ? "text-right" : "text-left"
+            }`}
           >
-            <strong>{msg.sender === "user" ? "You" : "AI"}:</strong> {msg.text}
+            <div 
+              className={`inline-block px-3 py-2 rounded-lg ${
+                msg.sender === "user" 
+                  ? "bg-blue-500/30 text-white rounded-tr-none" 
+                  : "bg-indigo-500/20 text-white/90 rounded-tl-none"
+              }`}
+            >
+              <div className="text-xs opacity-70 mb-1">
+                {msg.sender === "user" ? "You" : "AI"}
+              </div>
+              <div>{msg.text}</div>
+            </div>
           </div>
         ))}
       </div>

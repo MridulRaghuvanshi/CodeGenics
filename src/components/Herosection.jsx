@@ -1,89 +1,175 @@
-import pricingScreenshot from "../assets/pricing-screenshot.png";
-import backgroundVideo from "../assets/dna.mp4"; // Your animated DNA video
+import { motion } from "framer-motion";
+import { cn } from "../lib/Cn";
+import Navbar from "./Navbar";
+import "./HeroSection.css"; 
 
-export default function HeroSection() {
+function ElegantShape({
+  className,
+  delay = 0,
+  width = 400,
+  height = 100,
+  rotate = 0,
+  gradient = "from-white/[0.08]",
+}) {
   return (
-    <section className="relative w-full h-auto overflow-hidden py-12 px-4 mt-[5.1rem]">
-      
-      {/* 🔬 Background DNA video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 ml-[27rem]"
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: -150,
+        rotate: rotate - 15,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        rotate: rotate,
+      }}
+      transition={{
+        duration: 2.4,
+        delay,
+        ease: [0.23, 0.86, 0.39, 0.96],
+        opacity: { duration: 1.2 },
+      }}
+      className={cn("absolute", className)}
+    >
+      <motion.div
+        animate={{
+          y: [0, 15, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+        style={{
+          width,
+          height,
+        }}
+        className="relative"
       >
-        <source src={backgroundVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        <div
+          className={cn(
+            "absolute inset-0 rounded-full",
+            "bg-gradient-to-r to-transparent",
+            gradient,
+            "backdrop-blur-[2px] border-2 border-white/[0.15]",
+            "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+            "after:absolute after:inset-0 after:rounded-full",
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+          )}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
-      {/* 🧊 Overlay for readability */}
-      
+export default function HeroSection({
+  badge = "CodeGenics",
+  title1 = "Smart Tech",
+  title2 = "Better Health",
+}) {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5 + i * 0.2,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
 
-      {/* 🚀 Main Hero Content */}
-      <div className="relative z-20 container mx-auto flex flex-col lg:flex-row items-center gap-12">
-        
-        {/* 📄 Text Content */}
-        <div className="lg:w-1/2 space-y-6">
-          <div className="inline-flex items-center">
-            <div className="relative">
-              <div className="text-sm font-medium bg-white/80 rounded-full px-4 py-1 border border-gray-200">
-                Product of the Day
-              </div>
-              <div className="absolute -left-2 -right-2 -bottom-2 -top-2 border border-gray-200 rounded-full"></div>
-              <div className="absolute -left-4 -right-4 -bottom-4 -top-4 border border-gray-200 rounded-full"></div>
-            </div>
-            <div className="ml-4 text-sm font-medium">1st</div>
-          </div>
+  return (
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+      <Navbar />
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Empowering Healthcare with AI Intelligence
-          </h1>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
-          <p className="text-lg text-gray-800 max-w-xl">
-            Unlock the future of medical innovation with AI-driven tools designed to enhance clinical decision-making, streamline documentation, and predict health risks. From fast and accurate symptom checks to proactive disease management, our platform supports patients and providers in delivering better outcomes—faster, smarter, and with precision.
-          </p>
+      <div className="absolute inset-0 overflow-hidden">
+        <ElegantShape
+          delay={0.3}
+          width={600}
+          height={140}
+          rotate={12}
+          gradient="from-indigo-500/[0.15]"
+          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+        />
 
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-[#4ade80] hover:bg-[#22c55e] text-white px-8 py-6 rounded-md font-medium">
-              Buy Now
-            </button>
-            <button className="border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 px-8 py-6 rounded-md font-medium">
-              Learn More
-            </button>
-          </div>
+        <ElegantShape
+          delay={0.5}
+          width={500}
+          height={120}
+          rotate={-15}
+          gradient="from-rose-500/[0.15]"
+          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+        />
 
-          <div className="flex items-center text-emerald-600 font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5 mr-2"
-            >
-              <rect width="20" height="14" x="2" y="5" rx="2" />
-              <line x1="2" x2="22" y1="10" y2="10" />
-            </svg>
-            <span>$350 off for the first 10 customers (2 left)</span>
-          </div>
-        </div>
+        <ElegantShape
+          delay={0.4}
+          width={300}
+          height={80}
+          rotate={-8}
+          gradient="from-violet-500/[0.15]"
+          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+        />
 
-        {/* 🖼️ Right side image */}
-        <div className="lg:w-1/2">
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            {/* <img
-              src={pricingScreenshot || "/placeholder.svg"}
-              alt="Pricing screenshot"
-              className="w-full"
-            /> */}
-          </div>
+        <ElegantShape
+          delay={0.6}
+          width={200}
+          height={60}
+          rotate={20}
+          gradient="from-amber-500/[0.15]"
+          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+        />
+
+        <ElegantShape
+          delay={0.7}
+          width={150}
+          height={40}
+          rotate={-25}
+          gradient="from-cyan-500/[0.15]"
+          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+        />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            custom={0}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+          >
+            
+            <span className="text-sm text-white/60 tracking-wide">{badge}</span>
+          </motion.div>
+
+          <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">{title1}</span>
+              <br />
+              <span
+                className={cn(
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300",
+                  "font-pacifico"
+                )}
+              >
+                {title2}
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
+            <p className="text-base sm:text-lg md:text-xl text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+             Transforming Healthcare with Smart Tools for Better Decisions and Safer Outcomes
+            </p>
+          </motion.div>
         </div>
       </div>
-    </section>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+    </div>
   );
 }
