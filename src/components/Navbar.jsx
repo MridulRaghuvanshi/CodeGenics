@@ -25,7 +25,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Symptom Checker", href: "/symptoms" },
+    { name: "MediScan", href: "/symptoms" },
     { name: "Clinical Docs", href: "/docs" },
     { name: "Contact", href: "/contacts" },
   ]
@@ -51,7 +51,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide relative group"
+                className="text-white/70 hover:text-white ransition-all duration-300 ease-out hover:scale-105 text-sm font-medium tracking-wide relative group"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-indigo-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>

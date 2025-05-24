@@ -139,7 +139,7 @@ function ContactForm() {
                 onChange={handleChange}
                 required
                 className="w-full bg-white/[0.03] border border-white/[0.1] rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300"
-                placeholder="John Doe"
+                placeholder="Enter Your Name"
               />
             </div>
             
@@ -155,7 +155,7 @@ function ContactForm() {
                 onChange={handleChange}
                 required
                 className="w-full bg-white/[0.03] border border-white/[0.1] rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300"
-                placeholder="your@email.com"
+                placeholder="Enter Your Email"
               />
             </div>
           </div>
@@ -286,8 +286,8 @@ export default function Contact() {
               </span>
             </h1>
             <p className="text-lg text-white/40 leading-relaxed font-light max-w-2xl mx-auto">
-              Have a project in mind or just want to say hello? We'd love to hear from you.
-              Our team is ready to answer your questions and discuss your needs.
+            We’re here to help! Whether you have questions, feedback, or inquiries about our services, feel free to reach out. 
+            Fill out the form below and we’ll get back to you as soon as possible.
             </p>
           </motion.div>
 
@@ -316,7 +316,8 @@ export default function Contact() {
                     title="Email Us"
                     delay={0.3}
                   >
-                    <a href="mailto:hello@kokonutui.com" className="hover:text-blue-400 transition-colors duration-300">hello@kokonutui.com</a>
+                    <a href="mailto:hello@kokonutui.com" className="hover:text-blue-400 transition-colors duration-300">codegenics4@gmail.com
+                    </a>
                   </ContactInfo>
                   
                   <ContactInfo 
@@ -337,7 +338,7 @@ export default function Contact() {
                     title="Visit Us"
                     delay={0.5}
                   >
-                    <p>123 Design Street<br />Creative District<br />San Francisco, CA 94103</p>
+                    <p>Cyfuture India Pvt Ltd,Plot No. 126 N <br />SEZ,Phase-2, Block A<br/>Noida, Uttar Pradesh, India</p>
                   </ContactInfo>
                 </div>
               </motion.div>
