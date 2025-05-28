@@ -47,7 +47,7 @@ export default function SymptomCheck({ onReset }) {
         </button>
       </form>
 
-      <div className="mt-5 space-y-2">
+      <div className=" space-y-2">
         {messages.map((msg, idx) => (
           <div
             key={idx}

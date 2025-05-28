@@ -381,7 +381,7 @@ export default function Documentation() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-8 z-10">
+      {/* <div className="absolute bottom-8 right-8 z-10">
         <button className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full px-4 py-2 flex items-center text-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -394,7 +394,7 @@ export default function Documentation() {
           </svg>
           Scroll for more
         </button>
-      </div>
+      </div> */}
       
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />

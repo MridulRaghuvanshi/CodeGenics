@@ -3,7 +3,7 @@ import waveDark from "../assets/wave-dark.png";
 
 export default function FeaturesSection() {
   return (
-    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] mt-[10rem]">
+    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] min-h-screen">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-indigo-500/[0.05] blur-3xl" />
       

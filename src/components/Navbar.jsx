@@ -1,12 +1,10 @@
 
-
 import { useState, useEffect } from "react"
 
 import { Link } from "react-router-dom"; // ✅ Vite-compatible
-
+import logo from "../assets/circle.png"
 import { motion } from "framer-motion"
 import { cn } from "../lib/utils"
-import logo from "../assets/circle.png"
 import Contact from "../pages/Contact"
 
 export default function Navbar() {
@@ -27,8 +25,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Symptom Checker", href: "/symptoms" },
-    { name: "Clinical Docs", href: "/Docs" },
+    { name: "MediScan", href: "/symptoms" },
+    { name: "Clinical Docs", href: "/docs" },
     { name: "Contact", href: "/contacts" },
   ]
 
@@ -53,7 +51,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide relative group"
+                className="text-white/70 hover:text-white ransition-all duration-300 ease-out hover:scale-105 text-sm font-medium tracking-wide relative group"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-gradient-to-r from-indigo-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
@@ -79,19 +77,9 @@ export default function Navbar() {
           {/* Logo on the right */}
           <div className="flex items-center justify-end w-[120px]">
             <div className="relative h-10 w-10">
-              {/* <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
-                <circle cx="20" cy="20" r="18" fill="#030303" />
-                <path
-                  d="M12 14L20 28L28 14"
-                  stroke="#3B82F6"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                /> */}
-                <img src={logo} alt="Logo" className="h-full w-full object-cover rounded-full" />
-                <path d="M16 20H24" stroke="#3B82F6" strokeWidth="3" strokeLinecap="round" />
-              {/* </svg> */}
+              <Link to="/">
+                <img src={logo} alt="Logo" className="h-full w-full object-cover rounded-full cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>

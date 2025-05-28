@@ -3,7 +3,7 @@ import apiScreenshot from "../assets/api-screenshot.png";
 
 export default function ApiSection() {
   return (
-    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] text-center mt-[7rem]">
+    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] text-center">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-indigo-500/[0.05] blur-3xl" />
       
@@ -45,7 +45,7 @@ export default function ApiSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4 }}
         viewport={{ once: true }}
-        className="mt-16 max-w-4xl mx-auto relative z-10"
+        className="mt-16 max-w-4xl mx-auto relative z-10 mb-[9rem]"
       >
         <div className="relative rounded-xl overflow-hidden shadow-2xl group">
           {/* Glow effect */}

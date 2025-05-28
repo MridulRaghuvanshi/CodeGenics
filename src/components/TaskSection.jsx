@@ -3,7 +3,7 @@ import wavePurple from "../assets/wave-purple.png";
 
 export default function TaskSection() {
   return (
-    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] mt-[7rem]">
+    <section className="relative overflow-hidden py-20 px-4 bg-[#030303] min-h-screen">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-indigo-500/[0.05] blur-3xl" />
       

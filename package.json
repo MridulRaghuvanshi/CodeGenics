@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
   },
   "dependencies": {
     "@bradgarropy/next-link": "^1.1.0",
@@ -22,6 +24,7 @@
     "axios": "^1.8.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "concurrently": "^9.1.2",
     "dotted-map": "^2.2.3",
     "framer-motion": "^12.11.0",
     "lucide-react": "^0.509.0",

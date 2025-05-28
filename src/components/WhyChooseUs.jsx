@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
   return (
     <section 
       ref={sectionRef} 
-      className="py-16 px-6 bg-[#030303] mt-[4rem] relative overflow-hidden" 
+      className="py-16 px-6 bg-[#030303] relative overflow-hidden" 
       id="why-us"
     >
       {/* Background elements */}
@@ -80,7 +80,7 @@ export default function WhyChooseUs() {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-6xl mx-auto text-center relative z-10"
+        className="max-w-6xl mx-auto text-center relative z-10 mb-[5rem]"
       >
         <h2 className="text-4xl font-bold mb-4 text-white">Why Choose Us?</h2>
         <p className="text-white/60 mb-10">Empowering healthcare with intelligent tools for better outcomes.</p>

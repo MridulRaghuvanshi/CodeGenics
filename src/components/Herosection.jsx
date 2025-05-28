@@ -81,7 +81,7 @@ export default function HeroSection({
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#050505]">
       <Navbar />
 
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
@@ -142,7 +142,7 @@ export default function HeroSection({
             animate="visible"
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
           >
-            <img src="/logo.svg" alt="CodeGenics" width={20} height={20} />
+            
             <span className="text-sm text-white/60 tracking-wide">{badge}</span>
           </motion.div>
 

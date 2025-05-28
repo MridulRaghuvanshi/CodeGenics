@@ -1,10 +1,10 @@
 
 
-import Logo from '../assets/CodeGenics.jpg'
+import Logo from '../assets/CodeGenicswhite.png'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#030303] py-16 mt-[4rem] relative overflow-hidden">
+    <footer className="bg-[#030303] py-16 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-indigo-500/[0.03] blur-3xl" />
       
@@ -22,8 +22,8 @@ export default function Footer() {
             </div>
 
             <p className="text-white/60 mb-4">
-              Ship Next.js 15 apps with an MDX blog in minutes. TypeScript, Shadcn UI and all components you need to
-              build for your app, website, product or blog. SEO optimized, responsive and performant.
+            At CodeGenics, we follow a patient-centered, innovation-driven approach to build reliable, intelligent healthcare solutions.
+             Each phase of our process is carefully crafted to ensure we meet clinical needs with precision, efficiency, and long-term value.
             </p>
 
             <p className="text-sm text-white/40">Copyright © CodeGenics</p>
@@ -85,12 +85,12 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
+                  <a href="about" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
                     About CodeGenics
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
+                  <a href="contacts" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
                     Contact Support
                   </a>
                 </li>

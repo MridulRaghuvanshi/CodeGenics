@@ -34,7 +34,7 @@ function Symptom() {
       </div>
       
       <Navbar />
-      <div className="flex justify-center items-center gap-[7rem] relative z-10">
+      <div className="flex justify-center items-center gap-[7rem]">
         <div className="flex flex-col items-center justify-center min-h-screen">
           
           <div className="w-full max-w-md bg-white/[0.02] backdrop-blur-md rounded-3xl shadow-2xl p-0 mt-12 border border-blue-500/20 transition-transform duration-300 hover:scale-105 hover:shadow-blue-500/10">
@@ -70,49 +70,38 @@ function Symptom() {
           </div>
 
           <style>
-            {`
-              @keyframes float {
-                0% { transform: translateY(0px); }
-                50% { transform: translateY(-20px); }
-                100% { transform: translateY(0px); }
-              }
-              .animate-float {
-                animation: float 12s ease-in-out infinite;
-              }
-              .animate-float-delay {
-                animation: float 10s ease-in-out 2s infinite;
-              }
-              @keyframes bg-pan {
-                0% { background-position: 0% 50%; }
-                50% { background-position: 100% 50%; }
-                100% { background-position: 0% 50%; }
-              }
-              .animate-bg-pan {
-                background-size: 200% 200%;
-                animation: bg-pan 12s ease-in-out infinite;
-              }
-              @keyframes fade-in-up {
-                from { opacity: 0; transform: translateY(30px);}
-                to { opacity: 1; transform: translateY(0);}
-              }
-              .animate-fade-in-up {
-                animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
-              }
-              @keyframes fade-in-down {
-                from { opacity: 0; transform: translateY(-30px);}
-                to { opacity: 1; transform: translateY(0);}
-              }
-              .animate-fade-in-down {
-                animation: fade-in-down 0.8s cubic-bezier(.4,0,.2,1) both;
-              }
-              @keyframes fade-in {
-                from { opacity: 0;}
-                to { opacity: 1;}
-              }
-              .animate-fade-in {
-                animation: fade-in 1.2s ease both;
-              }
-            `}
+              {`
+            @keyframes bg-pan {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            .animate-bg-pan {
+              background-size: 200% 200%;
+              animation: bg-pan 12s ease-in-out infinite;
+            }
+            @keyframes fade-in-up {
+              from { opacity: 0; transform: translateY(30px);}
+              to { opacity: 1; transform: translateY(0);}
+            }
+            .animate-fade-in-up {
+              animation: fade-in-up 0.8s cubic-bezier(.4,0,.2,1) both;
+            }
+            @keyframes fade-in-down {
+              from { opacity: 0; transform: translateY(-30px);}
+              to { opacity: 1; transform: translateY(0);}
+            }
+            .animate-fade-in-down {
+              animation: fade-in-down 0.8s cubic-bezier(.4,0,.2,1) both;
+            }
+            @keyframes fade-in {
+              from { opacity: 0;}
+              to { opacity: 1;}
+            }
+            .animate-fade-in {
+              animation: fade-in 1.2s ease both;
+            }
+          `}
           </style>
         </div>
         <div className="w-[40%] h-[50%]">
@@ -120,8 +109,8 @@ function Symptom() {
         </div>
       </div>
       
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      {/* Gradient overlay
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" /> */}
     </section>
   );
 }
