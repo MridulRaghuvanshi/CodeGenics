@@ -2,9 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../lib/Cn";
 import Navbar from "../components/Navbar";
+import axios from 'axios';
 // import "./HeroGeometric.css"; // Reusing the same CSS for fonts
 
 function WavePattern({ className }) {
+
   return (
     <div className={cn("absolute z-0 opacity-20", className)}>
       <svg
@@ -83,22 +85,31 @@ function ContactForm() {
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: "", email: "", subject: "", message: "" });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1500);
+  
+    try {
+      const res = await axios.post("http://127.0.0.1:4000/api/v1/reach/contact", formState,{ withCredentials: true });
+  
+      if (res.status === 200) {
+        setIsSubmitted(true);
+        setFormState({ name: "", email: "", subject: "", message: "" });
+  
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        alert("Failed to send message: " + res.data.message);
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  
+    setIsSubmitting(false);
   };
+  
 
   return (
     <motion.form
