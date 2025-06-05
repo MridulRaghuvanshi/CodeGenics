@@ -31,36 +31,31 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:w-3/4">
             <div>
-              <h3 className="font-medium text-lg mb-4 text-white">Help</h3>
+              <h3 className="font-medium text-lg mb-4 text-white">Services</h3>
               <ul className="space-y-2">
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Documentation
+                  Clinical Documentation
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Generating boilerplates
+                  Risk Prediction Tool
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Writing posts with mdx
+                  Health Insights
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Deploy to Vercel
+                      MediScan
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Migrate blog from Ghost
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Free for Open Source
+                  Medical Report Generator
                   </a>
                 </li>
               </ul>
@@ -86,7 +81,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="about" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    About CodeGenics
+                  User Guide
                   </a>
                 </li>
                 <li>
@@ -98,21 +93,21 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="font-medium text-lg mb-4 text-white">Product</h3>
+              <h3 className="font-medium text-lg mb-4 text-white">Company</h3>
               <ul className="space-y-2">
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Try app
+                  About Us
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Pricing
+                  Meet the Team
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Release Notes
+                  Careers
                   </a>
                 </li>
                 <li>
@@ -125,45 +120,30 @@ export default function Footer() {
                     All Features
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Become an affiliate
-                  </a>
-                </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-medium text-lg mb-4 text-white">Tools</h3>
+              <h3 className="font-medium text-lg mb-4 text-white">Partners & Affiliates</h3>
               <ul className="space-y-2">
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Landing Page Components
+                  Collaborate With Us
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Component Explorer
+                  Research Partners
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Pricing Page Generator
+                  Become a Medical Partner
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Cron Expression Viewer
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Create step-by-step guides
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/60 hover:text-blue-400 transition-colors duration-200">
-                    Partners
+                  Press & Media
                   </a>
                 </li>
               </ul>
@@ -172,21 +152,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-4 mb-4 md:mb-0">
-            <div className="flex items-center gap-2">
-              <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 h-6 w-6 rounded-full flex items-center justify-center">
-                <span className="text-xs font-bold text-white">1</span>
-              </div>
-              <span className="text-sm font-medium text-white/80">#1 Product of the Day</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="bg-gradient-to-r from-blue-400 to-indigo-500 h-6 w-6 rounded-full flex items-center justify-center">
-                <span className="text-xs font-bold text-white">P</span>
-              </div>
-              <span className="text-sm font-medium text-white/80">Developer Tools</span>
-            </div>
-          </div>
+          
 
           <div className="text-sm text-white/40">© 2025 • CodeGenics</div>
         </div>

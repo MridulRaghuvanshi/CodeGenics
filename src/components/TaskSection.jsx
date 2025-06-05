@@ -46,12 +46,12 @@ export default function TaskSection() {
             className="lg:w-1/2 space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
-              Smart Task Prioritization
+            AI-Powered Health Prioritization
             </h2>
 
             <p className="text-lg text-white/70">
-              Our AI-powered task prioritization feature automatically organizes your to-do list based on deadlines,
-              importance, and your work patterns, ensuring you focus on the most critical tasks first.
+            Our intelligent system evaluates symptoms, risk factors, and health data to automatically prioritize your healthcare needs. 
+            Get timely insights and personalized recommendations—so you can take the right action at the right time.
             </p>
 
             <motion.div 
@@ -61,7 +61,7 @@ export default function TaskSection() {
               viewport={{ once: true }}
               className="space-y-3"
             >
-              <button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
+              <button className="bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-700 hover:to-sky-800 cursor-pointer text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
                 Try now for free
               </button>
               <p className="text-white/60">First month is on us.</p>

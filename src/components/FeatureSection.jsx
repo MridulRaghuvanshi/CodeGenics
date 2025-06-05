@@ -46,7 +46,7 @@ export default function FeaturesSection() {
             className="lg:w-1/2 space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
-              Supercharge Your Efficiency!
+            Empower Your Healthcare Decisions!
             </h2>
 
             <div className="space-y-6">
@@ -74,9 +74,9 @@ export default function FeaturesSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Intelligent Assistance</h3>
+                  <h3 className="text-xl font-semibold text-white">AI-Powered Insights</h3>
                   <p className="text-white/60 mt-1">
-                    Receive personalized recommendations and insights tailored to your workflow.
+                  Get personalized health assessments and early warnings with our intelligent symptom checker and risk prediction tools.
                   </p>
                 </div>
               </motion.div>
@@ -105,9 +105,9 @@ export default function FeaturesSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Seamless Collaboration</h3>
+                  <h3 className="text-xl font-semibold text-white">Collaborate with Experts</h3>
                   <p className="text-white/60 mt-1">
-                    Easily collaborate with team members and clients in real-time.
+                  Share reports and insights seamlessly with healthcare professionals for faster, data-driven consultations.
                   </p>
                 </div>
               </motion.div>
@@ -136,26 +136,15 @@ export default function FeaturesSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Advanced Customization</h3>
+                  <h3 className="text-xl font-semibold text-white">Tailored to Your Needs</h3>
                   <p className="text-white/60 mt-1">
-                    Tailor your app to fit your unique requirements with extensive customization options.
+                  Customize clinical documentation and reports based on your practice or individual health goals.
                   </p>
                 </div>
               </motion.div>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              <button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
-                Try now for free
-              </button>
-              <p className="text-white/60">7 day free trial, no credit card required.</p>
-            </motion.div>
+            
           </motion.div>
         </div>
       </div>

@@ -237,13 +237,13 @@ export default function AboutPage() {
               <TeamMember 
                 name="Mudit " 
                 role="" 
-                image="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                image="https://drive.google.com/file/d/1Yh8hbzynqGIJ3YPLLgWslWN4aq0NTPnH/view?usp=sharing" 
                 delay={0.5} 
               />
               <TeamMember 
                 name="Shubhang " 
                 role="Project Manager" 
-                image="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+                image="https://drive.google.com/file/d/1Yh8hbzynqGIJ3YPLLgWslWN4aq0NTPnH/view?usp=sharing" 
                 delay={0.6} 
               />
             </div>
