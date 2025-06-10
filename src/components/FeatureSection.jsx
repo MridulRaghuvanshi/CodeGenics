@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import waveDark from "../assets/wave-dark.png";
+import waveDark from "../assets/wave-dark.jpeg";
 
 export default function FeaturesSection() {
   return (
@@ -22,14 +22,14 @@ export default function FeaturesSection() {
           >
             <div className="relative rounded-xl overflow-hidden shadow-2xl group">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 w-4/5 h-auto bg-gradient-to-r from-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Image frame */}
-              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl overflow-hidden p-1">
+              <div className=" rounded-xl overflow-hidden p-1">
                 <img 
                   src={waveDark || "/placeholder.svg"} 
                   alt="Abstract wave" 
-                  className="w-full rounded-lg"
+                  className="w-4/5 h-auto rounded-lg"
                 />
               </div>
               

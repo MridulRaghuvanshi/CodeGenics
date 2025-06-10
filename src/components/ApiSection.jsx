@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import apiScreenshot from "../assets/api-screenshot.png";
+import apiScreenshot from "../assets/api-screenshot.jpeg";
 
 export default function ApiSection() {
   return (
@@ -19,7 +19,7 @@ export default function ApiSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            One-click API Integration
+            One-click AI Integration
           </h2>
 
           <p className="text-lg text-white/60">
@@ -67,7 +67,7 @@ export default function ApiSection() {
             <img 
               src={apiScreenshot || "/placeholder.svg"} 
               alt="API integration screenshot" 
-              className="w-full"
+              className="w-full h-auto"
             />
           </div>
           

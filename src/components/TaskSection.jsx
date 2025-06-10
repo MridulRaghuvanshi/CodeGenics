@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import wavePurple from "../assets/wave-purple.png";
+import wavePurple from "../assets/wave-purple.jpeg";
 
 export default function TaskSection() {
   return (
@@ -22,19 +22,19 @@ export default function TaskSection() {
           >
             <div className="relative rounded-xl overflow-hidden shadow-2xl group">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 w-9/10 h-auto  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Image frame */}
-              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-xl overflow-hidden p-1">
+              <div className=" rounded-xl overflow-hidden p-1">
                 <img 
                   src={wavePurple || "/placeholder.svg"} 
                   alt="Purple wave" 
-                  className="w-full rounded-lg"
+                  className="w-9/10 h-auto rounded-lg"
                 />
               </div>
               
               {/* Reflection effect */}
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-500/10 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 h-20 "></div>
             </div>
           </motion.div>
 
