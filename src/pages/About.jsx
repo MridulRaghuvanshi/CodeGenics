@@ -236,7 +236,7 @@ export default function AboutPage() {
               />
               <TeamMember 
                 name="Mudit " 
-                role="" 
+                role="Project Manager" 
                 image="https://drive.google.com/file/d/1Yh8hbzynqGIJ3YPLLgWslWN4aq0NTPnH/view?usp=sharing" 
                 delay={0.5} 
               />
