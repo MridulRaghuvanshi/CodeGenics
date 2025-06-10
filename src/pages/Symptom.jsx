@@ -7,6 +7,16 @@ function Symptom() {
   const [resetForm, setResetForm] = useState(null);
   const [riskValue, setRiskValue] = useState(0);
 
+  const handleSymptomSubmit = () => {
+    setRiskValue(50);
+  };
+
+  const handleResetCheck = () => {
+    console.log("Resetting check! Setting riskValue to 0"); // Debugging log
+    setRiskValue(0);
+    resetForm?.(); // Call the reset function from SymptomCheck
+  };
+
   return (
     <section className="min-h-screen bg-[#030303] relative overflow-hidden">
       {/* Background gradient */}
@@ -48,13 +58,13 @@ function Symptom() {
               </h2>
             </div>
             <div className="p-8 animate-fade-in-up">
-              <SymptomCheck onReset={setResetForm} onRiskChange={setRiskValue} />
+              <SymptomCheck onReset={setResetForm} onRiskChange={setRiskValue} onSubmit={handleSymptomSubmit} />
             </div>
             <div className="bg-blue-900/20 rounded-b-3xl px-6 py-3 flex items-center justify-between text-xs text-blue-300 border-t border-blue-500/20 animate-fade-in">
               <button
                 className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-95"
                 type="button"
-                onClick={() => resetForm?.()}
+                onClick={handleResetCheck}
               >
                 Start New Check
               </button>

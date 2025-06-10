@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function SymptomCheck({ onReset }) {
+export default function SymptomCheck({ onReset , onSubmit}) {
   const [symptom, setSymptom] = useState("");
   const [messages, setMessages] = useState([]);
   const inputRef = useRef(null);
@@ -14,6 +14,9 @@ export default function SymptomCheck({ onReset }) {
     const aiMsg = { sender: "ai", text: getAIResponse(symptom) };
     setMessages((prev) => [...prev, userMsg, aiMsg]);
     setSymptom("");
+    if (onSubmit) {
+      onSubmit(); // Call `onSubmit` to update risk score in parent component
+    }
   };
 
   const handleReset = () => {

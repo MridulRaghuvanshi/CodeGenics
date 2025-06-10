@@ -1,0 +1,53 @@
+Last login: Fri May 30 04:24:53 on ttys000
+/Users/shubhangarya/.zshrc:23: no such file or directory: alias vmd="/path/to/actual/VMD"
+(base) shubhangarya@Shubhangs-MacBook-Air ~ % cd /Users/shubhangarya/Downloads/cyfuture/Transformer_Implemented-main/Transformers
+(base) shubhangarya@Shubhangs-MacBook-Air Transformers % source .venv/bin/activate
+(.venv) (base) shubhangarya@Shubhangs-MacBook-Air Transformers % python medical_diagnosis_rag.py
+Initializing medical diagnosis system...
+Loading models...
+Device set to use mps:0
+Enter the path to your papers directory: medical_papers
+Loading papers from: medical_papers
+Successfully loaded 89 papers
+Creating embeddings...
+Processing papers: 100%|████████████████████████████████████████████| 89/89 [00:05<00:00, 15.14it/s]
+Created embeddings for 89 papers
+System initialized with 89 papers
+Loaded papers for diseases: pertussis, covid-19, tuberculosis
+
+Enter your symptoms (or 'quit' to exit):
+Cough, fever, difficulty breathing
+
+Analyzing symptoms...
+
+Diagnosis Results:
+[Disease: PERTUSSIS (Relevance: 0.51)] Community-Acquired Pneumonia in Children: Rapid Evidence Review Dustin K. Smith, DO, and Daniel P. Kuckel, MD, Naval Hospital Jacksonville, Jacksonville, Florida; Uniformed Services University of the Health Sciences, Bethesda, Maryland Anthony M. Recidoro, DO, Naval Hospital Jacksonville, Jacksonville, Florida In the United States, pneumonia is the most common cause of hospitalization in children. [Disease: PERTUSSIS (Relevance: 0.51)] AnnAls of Medicine 2024, Vol. 56, no. 1, 2352606 https://doi.org/10.1080/07853890.2024.
+
+==================================================
+
+Enter your symptoms (or 'quit' to exit):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

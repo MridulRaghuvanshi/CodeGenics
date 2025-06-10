@@ -1,35 +1,35 @@
 import React, { useRef } from "react";
-import { FaClock, FaRobot, FaStethoscope, FaShieldAlt, FaNotesMedical, FaMicroscope, FaHeartbeat } from "react-icons/fa";
+import { FaClock, FaRobot, FaStethoscope, FaShieldAlt, FaNotesMedical, FaMicroscope} from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
 const features = [
   {
-    icon: <FaStethoscope className="text-3xl text-blue-400 mx-auto" />,
+    icon: <FaStethoscope className="text-3xl text-sky-500 mx-auto" />,
     title: "Smart Symptom Assessment",
     description: "Analyze symptoms instantly with AI and guide users to the right care path.",
   },
   {
-    icon: <FaMicroscope className="text-3xl text-indigo-400 mx-auto" />,
+    icon: <FaMicroscope className="text-3xl text-sky-600 mx-auto" />,
     title: "Early Risk Prediction",
     description: "Catch potential health issues before they escalate using predictive analytics.",
   },
   {
-    icon: <FaNotesMedical className="text-3xl text-blue-400 mx-auto" />,
+    icon: <FaNotesMedical className="text-3xl text-sky-500 mx-auto" />,
     title: "Automated Documentation",
     description: "Save time with real-time clinical note generation and EHR-ready reports.",
   },
   {
-    icon: <FaRobot className="text-3xl text-indigo-400 mx-auto" />,
+    icon: <FaRobot className="text-3xl text-sky-600 mx-auto" />,
     title: "AI-Powered Accuracy",
     description: "Support diagnosis and reduce errors with AI-assisted clinical insights.",
   },
   {
-    icon: <FaClock className="text-3xl text-blue-400 mx-auto" />,
+    icon: <FaClock className="text-3xl text-sky-500 mx-auto" />,
     title: "Time & Cost Efficient",
     description: "Reduce unnecessary tests and appointments with intelligent triage.",
   },
   {
-    icon: <FaShieldAlt className="text-3xl text-indigo-400 mx-auto" />,
+    icon: <FaShieldAlt className="text-3xl text-sky-600 mx-auto" />,
     title: "Secure & Scalable",
     description: "HIPAA-compliant platform built for clinics, hospitals, and networks.",
   },
@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
               animate={isInView ? "visible" : "hidden"}
               custom={index}
               key={index}
-              className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07] p-6 rounded-2xl shadow-lg hover:shadow-blue-500/10 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:bg-white/[0.04]"
+              className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07] p-6 rounded-2xl shadow-lg hover:shadow-sky-500/10 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:bg-white/[0.04]"
             >
               <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
                 {feature.icon}
